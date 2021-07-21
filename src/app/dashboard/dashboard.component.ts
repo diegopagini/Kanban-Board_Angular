@@ -17,7 +17,7 @@ export class DashboardComponent {
     {
       id: 2,
       name: 'To Do',
-      cards: ['asda', 'dasdasdasdasd'],
+      cards: ['Do', 'HomeWork'],
     },
     {
       id: 3,
