@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Stage } from '../models/stage.interface';
 
@@ -7,7 +7,7 @@ import { Stage } from '../models/stage.interface';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent {
   public stages: Stage[] = [
     {
       id: 1,
@@ -38,10 +38,9 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
-
   addTask() {
     if (this.taskCreatorForm.valid) {
+      this.stages[0].cards.push(this.taskCreatorForm.get('task').value);
       this.taskCreatorForm.reset();
     } else {
       this.taskCreatorForm.markAllAsTouched();
