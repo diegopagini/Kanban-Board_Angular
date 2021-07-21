@@ -1,1 +1,25 @@
-<p>dashboard works!</p>
+<section class="form-container">
+  <form [formGroup]="taskCreatorForm" class="form" (ngSubmit)="addTask()">
+    <div class="form-group">
+      <label class="label" for="task"> Add a task </label>
+      <input class="input" type="text" id="task" formControlName="task" />
+    </div>
+    <button [disabled]="taskCreatorForm.invalid" type="submit" class="button">
+      Add
+    </button>
+  </form>
+</section>
+
+<section class="cards-container">
+  <ng-container *ngFor="let stage of stages">
+    <div class="card">
+      <h3 class="card-title">{{ stage.name }}</h3>
+
+      <section class="card-tasks-container">
+        <ng-container *ngFor="let card of stage.cards">
+          <div>{{ card }}</div>
+        </ng-container>
+      </section>
+    </div>
+  </ng-container>
+</section>
