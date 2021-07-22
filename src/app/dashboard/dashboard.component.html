@@ -22,18 +22,29 @@
 
       <section class="card-tasks-container">
         <ng-container *ngFor="let card of stage.cards; let j = index">
-          <div class="stage">
+          <div class="stage animate__animated animate__fadeIn">
             <p class="name">{{ card }}</p>
             <div class="buttons-container">
-              <button [disabled]="i === 0" class="btn" (click)="moveLeft()">
-                <img src="https://img.icons8.com/fluent/48/000000/left.png" />
+              <button [disabled]="i === 0" class="btn" (click)="moveLeft(i, j)">
+                <img
+                  src="https://img.icons8.com/fluent/48/000000/left.png"
+                  alt="move left"
+                />
               </button>
-              <button [disabled]="i === 3" class="btn" (click)="moveRight()">
-                <img src="https://img.icons8.com/fluent/48/000000/right.png" />
+              <button
+                [disabled]="i === 3"
+                class="btn"
+                (click)="moveRight(i, j)"
+              >
+                <img
+                  src="https://img.icons8.com/fluent/48/000000/right.png"
+                  alt="move right"
+                />
               </button>
-              <button class="btn" (click)="delete()">
+              <button class="btn" (click)="delete(i, j)">
                 <img
                   src="https://img.icons8.com/fluent/48/000000/delete-sign.png"
+                  alt="delete"
                 />
               </button>
             </div>

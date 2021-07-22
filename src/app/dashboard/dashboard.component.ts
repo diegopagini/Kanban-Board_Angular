@@ -12,22 +12,22 @@ export class DashboardComponent {
     {
       id: 1,
       name: 'Backlog',
-      cards: [1, 2, 3],
+      cards: [],
     },
     {
       id: 2,
       name: 'To Do',
-      cards: ['Do', 'HomeWork'],
+      cards: [],
     },
     {
       id: 3,
       name: 'Ongoing',
-      cards: ['asdasddwq'],
+      cards: [],
     },
     {
       id: 4,
       name: 'Done',
-      cards: ['mukdlas'],
+      cards: [],
     },
   ];
   public taskCreatorForm: FormGroup;
@@ -47,15 +47,28 @@ export class DashboardComponent {
     }
   }
 
-  moveRight() {
-    console.log('move right');
+  moveRight(i, j) {
+    const currentCard = this.stages[i].cards[j];
+    const nextStage = this.stages[i + 1].cards;
+    const stages = this.stages[i].cards;
+
+    this.stages[i].cards = stages.filter((el) => el !== currentCard);
+    nextStage.push(currentCard);
   }
 
-  moveLeft() {
-    console.log('move left');
+  moveLeft(i, j) {
+    const currentCard = this.stages[i].cards[j];
+    const nextStage = this.stages[i - 1].cards;
+    const stages = this.stages[i].cards;
+
+    this.stages[i].cards = stages.filter((el) => el !== currentCard);
+    nextStage.push(currentCard);
   }
 
-  delete() {
-    console.log('delete');
+  delete(i, j) {
+    const currentCard = this.stages[i].cards[j];
+    const stages = this.stages[i].cards;
+
+    this.stages[i].cards = stages.filter((el) => el !== currentCard);
   }
 }
