@@ -4,6 +4,10 @@
   padding-top: 5rem;
   width: 100%;
 
+  @media (max-width: 991px) {
+    margin-bottom: 1rem;
+  }
+
   .form {
     align-items: flex-end;
     display: flex;
@@ -32,10 +36,15 @@
 }
 
 .cards-container {
-  align-items: center;
+  align-items: flex-start;
   display: flex;
   justify-content: space-evenly;
   padding-top: 5rem;
+
+  @media (max-width: 991px) {
+    flex-direction: column;
+    padding-top: 2rem;
+  }
 
   .card {
     border: 2px solid #fafafa;
@@ -43,6 +52,11 @@
     border-radius: 5px;
     min-height: 50vh;
     min-width: 20%;
+
+    @media (max-width: 991px) {
+      margin: 2rem 0;
+      width: 90%;
+    }
 
     &-title {
       font-size: 1rem;
@@ -63,6 +77,28 @@
         margin: 0.25rem 0;
         padding: 0.25rem;
         width: 100%;
+
+        .name {
+          padding: 0.25rem;
+        }
+
+        .buttons-container {
+          align-items: center;
+          display: flex;
+          justify-content: space-evenly;
+          margin: 1rem 0 0 50%;
+
+          .btn {
+            cursor: pointer;
+            img {
+              max-width: 30px;
+            }
+          }
+
+          .disabled {
+            cursor: default;
+          }
+        }
       }
     }
   }

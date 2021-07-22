@@ -46,4 +46,16 @@ export class DashboardComponent {
       this.taskCreatorForm.markAllAsTouched();
     }
   }
+
+  moveRight() {
+    console.log('move right');
+  }
+
+  moveLeft() {
+    console.log('move left');
+  }
+
+  delete() {
+    console.log('delete');
+  }
 }

@@ -1,5 +1,10 @@
 <section class="form-container">
-  <form [formGroup]="taskCreatorForm" class="form" (ngSubmit)="addTask()">
+  <form
+    autocomplete="off"
+    [formGroup]="taskCreatorForm"
+    class="form"
+    (ngSubmit)="addTask()"
+  >
     <div class="form-group">
       <label class="label" for="task"> Add a task </label>
       <input class="input" type="text" id="task" formControlName="task" />
@@ -11,13 +16,28 @@
 </section>
 
 <section class="cards-container">
-  <ng-container *ngFor="let stage of stages">
+  <ng-container *ngFor="let stage of stages; let i = index">
     <div class="card">
       <h3 class="card-title">{{ stage.name }}</h3>
 
       <section class="card-tasks-container">
-        <ng-container *ngFor="let card of stage.cards">
-          <div class="stage">{{ card }}</div>
+        <ng-container *ngFor="let card of stage.cards; let j = index">
+          <div class="stage">
+            <p class="name">{{ card }}</p>
+            <div class="buttons-container">
+              <button [disabled]="i === 0" class="btn" (click)="moveLeft()">
+                <img src="https://img.icons8.com/fluent/48/000000/left.png" />
+              </button>
+              <button [disabled]="i === 3" class="btn" (click)="moveRight()">
+                <img src="https://img.icons8.com/fluent/48/000000/right.png" />
+              </button>
+              <button class="btn" (click)="delete()">
+                <img
+                  src="https://img.icons8.com/fluent/48/000000/delete-sign.png"
+                />
+              </button>
+            </div>
+          </div>
         </ng-container>
       </section>
     </div>
